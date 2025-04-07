@@ -255,7 +255,8 @@ class SimpleActionState(State):
         rospy.loginfo("Preempt requested on action '%s'" % (self._action_name))
         smach.State.request_preempt(self)
         if self._status == SimpleActionState.ACTIVE:
-            rospy.loginfo("Preempt on action '%s' cancelling goal: \n%s" % (self._action_name, str(self._goal)))
+            # rospy.loginfo("Preempt on action '%s' cancelling goal: \n%s" % (self._action_name, str(self._goal)))
+            rospy.loginfo("Preempt on action '%s' cancelling goal" % (self._action_name))
             # Cancel the goal
             self._action_client.cancel_goal()
 
